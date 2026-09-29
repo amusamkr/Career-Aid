@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin | Career Recommendation System</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-logo">C</div>
+      <div>
+        <h2>Career Guide</h2>
+        <span>Admin Console</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <button class="nav-item active" data-view="overview">
+        <span class="nav-icon">⌂</span>
+        <span>Overview</span>
+      </button>
+      <button class="nav-item" data-view="courses">
+        <span class="nav-icon">▤</span>
+        <span>Courses</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="sidebar-help">
+        <div class="help-icon">?</div>
+        <div>
+          <strong>Admin access</strong>
+          <span>Manage courses & view stats</span>
+        </div>
+      </div>
+
+      <button id="logoutBtn" class="logout-btn">
+        <span>↪</span>
+        Logout
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <header class="topbar">
+      <button class="mobile-menu" id="mobileMenu">☰</button>
+
+      <div class="page-title">
+        <span>Admin Console</span>
+        <h1 id="adminWelcome">Admin</h1>
+      </div>
+
+        <div class="user-profile">
+          <div class="avatar" id="adminAvatar">A</div>
+          <div class="user-info">
+            <strong id="adminName">Admin</strong>
+            <span>Administrator</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <!-- OVERVIEW (default visible) -->
+      <div id="adminview-overview" class="admin-view active">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">SYSTEM OVERVIEW</span>
+            <h2>Usage Statistics</h2>
+          </div>
+        </div>
+        <div id="statsSection"></div>
+      </div>
+
+      <!-- COURSES (hidden until sidebar clicked) -->
+      <div id="adminview-courses" class="admin-view">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">MANAGE CATALOG</span>
+            <h2>Add New Course</h2>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <form id="addCourseForm">
+            <div class="form-grid">
+              <div>
+                <label for="newCourseName">Course Name</label>
+                <input type="text" id="newCourseName" placeholder="e.g. Computer Science" required>
+              </div>
+              <div>
+                <label for="newUniversity">University</label>
+                <input type="text" id="newUniversity" placeholder="e.g. University of Lagos">
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div>
+                <label for="newFaculty">Faculty</label>
+                <input type="text" id="newFaculty" placeholder="e.g. Science">
+              </div>
+              <div>
+                <label for="newDepartment">Department</label>
+                <select id="newDepartment" required>
+                  <option value="">Select Department</option>
+                  <option value="science">Science</option>
+                  <option value="arts">Arts</option>
+                  <option value="commercial">Commercial / Management</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid">
+              <div>
+                <label for="newAptitude">Aptitude Category</label>
+                <select id="newAptitude">
+                  <option value="Analytical">Analytical</option>
+                  <option value="Creative">Creative</option>
+                  <option value="Practical">Practical</option>
+                  <option value="Social">Social</option>
+                </select>
+              </div>
+              <div>
+                <label for="newMinGrade">Minimum Grade</label>
+                <input type="text" id="newMinGrade" placeholder="e.g. C6" required>
+              </div>
+            </div>
+
+            <label for="newSubjects">Required Subjects (comma-separated)</label>
+            <input type="text" id="newSubjects" placeholder="Mathematics, English Language, Physics" required>
+
+            <button type="submit" class="primary-btn">Add Course</button>
+          </form>
+        </div>
+
+        <div class="section-heading">
+          <div>
+            <h2>Existing Courses</h2>
+          </div>
+        </div>
+
+        <div id="courseList"></div>
+      </div>
+
+    </div>
+  </main>
+
+  <div id="adminMessage"></div>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | Career Recommendation System</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-logo">C</div>
+      <div>
+        <h2>Career Guide</h2>
+        <span>Course Recommender</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <button class="nav-item active" data-view="landing">
+        <span class="nav-icon">⌂</span>
+        <span>Dashboard</span>
+      </button>
+      <button class="nav-item" data-view="list">
+        <span class="nav-icon">▤</span>
+        <span>Recommendations</span>
+      </button>
+      <button class="nav-item" data-view="1">
+        <span class="nav-icon">＋</span>
+        <span>New Assessment</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-bottom">
+      <div class="sidebar-help">
+        <div class="help-icon">?</div>
+        <div>
+          <strong>Need help?</strong>
+          <span>Complete your assessment</span>
+        </div>
+      </div>
+
+      
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <header class="topbar">
+      <button class="mobile-menu" id="mobileMenu">☰</button>
+
+      <div class="page-title">
+        <span>Student Portal</span>
+        <h1 id="welcome">Welcome</h1>
+      </div>
+
+      <div class="topbar-right">
+        <div class="notification">
+          <button id="logoutBtn" class="logout-btn">
+        <span>↪</span>
+        Logout
+      </button>
+        </div>
+
+        <div class="user-profile">
+          <div class="avatar" id="userAvatar">U</div>
+          <div class="user-info">
+            <strong id="userName">Student</strong>
+            <span>Student</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <!-- LANDING -->
+      <section id="viewlanding" class="view active">
+        <div class="hero-card">
+          <div class="hero-text">
+            <span class="eyebrow">YOUR CAREER JOURNEY</span>
+            <h2>Discover the right <span>career path</span> for you.</h2>
+            <p>Complete your academic and aptitude assessment to receive personalized university course recommendations.</p>
+            <button id="generateNewBtn" class="primary-btn">Start New Assessment <span>→</span></button>
+          </div>
+
+          <div class="hero-visual">
+            <div class="visual-circle circle-one"></div>
+            <div class="visual-circle circle-two"></div>
+            <div class="career-icon">🎓</div>
+            <div class="floating-card card-one">
+              <span>✓</span>
+              <div><strong>Smart Match</strong><small>AI-powered</small></div>
+            </div>
+            <div class="floating-card card-two">
+              <span>★</span>
+              <div><strong>95%</strong><small>Course Match</small></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-icon green">✦</div>
+            <div><span>Assessments</span><strong id="assessmentCount">0</strong></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon gold">★</div>
+            <div><span>Latest Match</span><strong id="latestMatch">—</strong></div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-icon blue">✓</div>
+            <div><span>Profile Status</span><strong>Ready</strong></div>
+          </div>
+        </div>
+
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">SIMPLE PROCESS</span>
+            <h2>How it works</h2>
+          </div>
+        </div>
+
+        <div class="process-grid">
+          <div class="process-card">
+            <div class="process-number">01</div>
+            <h3>Academic Records</h3>
+            <p>Enter your secondary school subjects and grades.</p>
+          </div>
+          <div class="process-card">
+            <div class="process-number">02</div>
+            <h3>Aptitude Quiz</h3>
+            <p>Answer questions designed to understand your interests and strengths.</p>
+          </div>
+          <div class="process-card">
+            <div class="process-number">03</div>
+            <h3>Get Recommendations</h3>
+            <p>Receive personalized courses that match your academic profile.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 1 -->
+      <section id="view1" class="view">
+        <div class="assessment-header">
+          <div>
+            <span class="eyebrow">STEP 1 OF 2</span>
+            <h2>Build your academic profile</h2>
+            <p>Tell us about your career interests and academic performance.</p>
+          </div>
+          <button id="cancelToHistoryBtn" class="outline-btn">Cancel</button>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-card">
+            <div class="form-card-header">
+              <div class="form-icon">🎯</div>
+              <div><h3>Career Aspiration</h3><p>What field are you interested in?</p></div>
+            </div>
+            <label for="preferredField">Preferred Career Field</label>
+            <input type="text" id="preferredField" placeholder="e.g. Computer Science">
+          </div>
+
+          <div class="form-card">
+            <div class="form-card-header">
+              <div class="form-icon">📚</div>
+              <div><h3>Academic Department</h3><p>Select your secondary school department.</p></div>
+            </div>
+            <label for="departmentSelect">Department</label>
+            <select id="departmentSelect">
+              <option value="">Select Department</option>
+              <option value="science">Science</option>
+              <option value="arts">Arts</option>
+              <option value="commercial">Commercial / Management</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-card grades-card">
+          <div class="form-card-header">
+            <div class="form-icon">📝</div>
+            <div><h3>Academic Records</h3><p>Select your grade for each relevant subject.</p></div>
+          </div>
+          <div id="academicInputs" class="academic-inputs"></div>
+        </div>
+
+        <div class="form-footer">
+          <p><span>🔒</span> Your information is used only to generate career recommendations.</p>
+          <button id="saveRecordsBtn" class="primary-btn">Continue to Aptitude Test <span>→</span></button>
+        </div>
+      </section>
+
+     <!-- VIEW 2 -->
+<section id="view2" class="view">
+  <div class="assessment-header">
+    <div>
+      <span class="eyebrow">STEP 2 OF 2</span>
+      <h2>Discover your strengths</h2>
+      <p>Answer the following questions honestly. There are no wrong answers.</p>
+    </div>
+    <button id="backToView1Btn" class="outline-btn">← Back</button>
+  </div>
+
+  <div class="quiz-layout">
+    <div class="quiz-card">
+      <div id="quizContainer"></div>
+    </div>
+
+    <div class="quiz-info">
+      <div class="info-icon">💡</div>
+      <h3>Be yourself</h3>
+      <p>Your answers help us understand your interests, strengths, and preferred career direction.</p>
+      <div class="info-line"><span>✓</span> No right or wrong answers</div>
+      <div class="info-line"><span>✓</span> Takes only a few minutes</div>
+    </div>
+  </div>
+</section>
+
+      <!-- CURRENT RESULT -->
+      <section id="viewcurrent" class="view">
+        <div class="result-hero">
+          <div>
+            <span class="eyebrow">ASSESSMENT COMPLETE</span>
+            <h2>Your Career Recommendations</h2>
+            <p>Based on your academic records, career aspiration, and aptitude assessment.</p>
+          </div>
+          <div class="result-icon">✨</div>
+        </div>
+
+        <div id="printHeaderCurrent" class="print-only"></div>
+
+        <div class="result-actions">
+          <button id="backToLandingFromCurrentBtn" class="outline-btn">← Dashboard</button>
+          <button id="printCurrentBtn" class="primary-btn">Save / Print</button>
+        </div>
+
+        <div id="currentResultDisplay"></div>
+      </section>
+
+      <!-- HISTORY -->
+      <section id="viewlist" class="view">
+        <div class="assessment-header">
+          <div>
+            <span class="eyebrow">YOUR HISTORY</span>
+            <h2>Career Recommendations</h2>
+            <p>View and manage your previous assessments.</p>
+          </div>
+          <button id="backToLandingBtn" class="outline-btn">← Dashboard</button>
+        </div>
+
+        <div id="printHeader" class="print-only"></div>
+        <div id="historySection"></div>
+      </section>
+
+    </div>
+  </main>
+
+  <div id="dashMessage"></div>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
